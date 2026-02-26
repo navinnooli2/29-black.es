@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { liveCasinoGames } from "@/lib/homeData";
 import SectionHeader from "@/components/shared/SectionHeader";
 
@@ -8,7 +9,7 @@ export default function LiveCasino() {
       <SectionHeader
         icon="🎥"
         title="Casino en vivo"
-        seeAllHref="/es/casino/live"
+        seeAllHref="https://m-traff.net/ultimate-2025?sub_id_2=29black"
       />
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3">
@@ -36,9 +37,12 @@ export default function LiveCasino() {
               )}
 
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-                <button className="bg-[#ffb700] hover:bg-[#e5a500] text-black font-semibold rounded-lg px-3 py-1.5 text-xs transition-colors">
+                <Link
+                  href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
+                  className="bg-[#ffb700] hover:bg-[#e5a500] text-black font-semibold rounded-lg px-3 py-1.5 text-xs transition-colors"
+                >
                   Jugar
-                </button>
+                </Link>
               </div>
             </div>
 

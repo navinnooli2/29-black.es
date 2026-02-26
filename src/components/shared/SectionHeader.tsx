@@ -49,7 +49,7 @@ export default function SectionHeader({
             </svg>
           </button>
           <Link
-            href={seeAllHref}
+            href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
             className="text-white/60 hover:text-white text-sm transition-colors ml-1"
           >
             {seeAllText}

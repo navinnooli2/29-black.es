@@ -27,13 +27,13 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
 
         <div className="hidden lg:flex items-center mr-8">
           <Link
-            href="/es/casino/all"
+            href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
             className="text-white bg-[#1a1a1a] rounded-lg w-[88px] flex items-center justify-center h-9 text-sm font-semibold hover:bg-[#2a2a2a] transition-colors border border-[rgba(255,255,255,0.08)]"
           >
             Casino
           </Link>
           <Link
-            href="/es/sports/euro/home"
+            href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
             className="text-white ml-3 bg-[#1a1a1a] rounded-lg w-[88px] flex items-center justify-center h-9 text-sm font-semibold hover:bg-[#2a2a2a] transition-colors border border-[rgba(255,255,255,0.08)]"
           >
             Deportes
@@ -64,12 +64,18 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
           />
         </button>
 
-        <button className="text-white border border-white/80 rounded-lg px-4 py-2 text-[13px] font-semibold hover:bg-white/10 transition-colors h-9">
+        <Link
+          href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
+          className="text-white border border-white/80 rounded-lg px-4 py-2 text-[13px] font-semibold hover:bg-white/10 transition-colors h-9 flex items-center"
+        >
           Iniciar sesión
-        </button>
-        <button className="text-black bg-[#ffb700] hover:bg-[#e5a500] rounded-lg px-4 py-2 text-[13px] font-semibold transition-colors h-9">
+        </Link>
+        <Link
+          href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
+          className="text-black bg-[#ffb700] hover:bg-[#e5a500] rounded-lg px-4 py-2 text-[13px] font-semibold transition-colors h-9 flex items-center"
+        >
           Registrarse
-        </button>
+        </Link>
       </div>
     </header>
   );

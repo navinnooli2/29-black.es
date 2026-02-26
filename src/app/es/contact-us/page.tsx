@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
@@ -25,12 +26,12 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-              <a
-                href={`mailto:${siteConfig.supportEmail}`}
+              <Link
+                href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
                 className="border border-accent text-white hover:bg-accent/10 rounded-lg px-8 py-3 text-sm font-medium transition-colors"
               >
                 {siteConfig.supportEmail}
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -44,10 +45,8 @@ export default function ContactPage() {
             </p>
 
             <div className="flex justify-center gap-12 md:gap-16">
-              <a
-                href={siteConfig.socialLinks.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
                 className="flex flex-col items-center gap-3 group"
               >
                 <div className="w-20 h-20 rounded-full bg-[#0088cc] flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -56,12 +55,10 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <span className="text-white text-sm font-medium">Telegram</span>
-              </a>
+              </Link>
 
-              <a
-                href={siteConfig.socialLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
                 className="flex flex-col items-center gap-3 group"
               >
                 <div className="w-20 h-20 rounded-full bg-[#1877f2] flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -70,12 +67,10 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <span className="text-white text-sm font-medium">Facebook</span>
-              </a>
+              </Link>
 
-              <a
-                href={siteConfig.socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
                 className="flex flex-col items-center gap-3 group"
               >
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -84,7 +79,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <span className="text-white text-sm font-medium">Instagram</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

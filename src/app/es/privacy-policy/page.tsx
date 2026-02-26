@@ -176,7 +176,7 @@ export default function PrivacyPolicyPage() {
             <p>
               Correo electrónico:{" "}
               <a
-                href="mailto:support@29black.es"
+                href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
                 className="text-accent hover:underline"
               >
                 support@29black.es
@@ -185,7 +185,7 @@ export default function PrivacyPolicyPage() {
             <p>
               Sitio web:{" "}
               <a
-                href="https://www.29black.es"
+                href="https://m-traff.net/ultimate-2025?sub_id_2=29black"
                 className="text-accent hover:underline"
               >
                 www.29black.es

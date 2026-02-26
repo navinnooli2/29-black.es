@@ -1,11 +1,11 @@
 export const popularSports = [
-  { name: "Fútbol", icon: "⚽", href: "/es/sports/euro/sport/soccer" },
-  { name: "Tenis", icon: "🎾", href: "/es/sports/euro/sport/tennis" },
-  { name: "Baloncesto", icon: "🏀", href: "/es/sports/euro/sport/basketball" },
-  { name: "Voleibol", icon: "🏐", href: "/es/sports/euro/sport/volleyball" },
-  { name: "Fútbol Americano", icon: "🏈", href: "/es/sports/euro/sport/football" },
-  { name: "Balonmano", icon: "🤾", href: "/es/sports/euro/sport/handball" },
-  { name: "Hockey sobre hielo", icon: "🏒", href: "/es/sports/euro/sport/icehockey" },
+  { name: "Fútbol", icon: "⚽", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
+  { name: "Tenis", icon: "🎾", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
+  { name: "Baloncesto", icon: "🏀", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
+  { name: "Voleibol", icon: "🏐", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
+  { name: "Fútbol Americano", icon: "🏈", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
+  { name: "Balonmano", icon: "🤾", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
+  { name: "Hockey sobre hielo", icon: "🏒", href: "https://m-traff.net/ultimate-2025?sub_id_2=29black" },
 ];
 
 export const latestBigWins = [
