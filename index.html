@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>29Black | Casino y Apuestas Deportivas | Casino Crypto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="29Black es un casino crypto y casa de apuestas en línea que ofrece tragamonedas, juegos de mesa, juegos en vivo y apuestas deportivas.">
+<link rel="icon" href="assets/svg/favIcon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="es-ES" href="https://29-black.es/" />
+<style>
+/* ===== VARIABLES ===== */
+:root {
+  --primary: #FFB700;
+  --black: #000;
+  --blackLight: #111112;
+  --gray: #1e1f20;
+  --border: rgba(255,255,255,0.1);
+  --gold-grad: linear-gradient(0deg,#000,#783800,#FFB700,#FFF2C0,#FFB700,#783800,#000);
+  --sidebar-w: 240px;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:#000; color:#fff; font-family:'Helvetica Neue',Arial,sans-serif; font-size:16px; }
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; height:auto; display:block; }
+
+/* ===== HEADER ===== */
+header {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:#000; border-bottom:1px solid var(--border);
+  height:65px; display:flex; align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+}
+.header-left { display:flex; align-items:center; gap:16px; }
+.logo img { height:40px; width:auto; }
+.header-nav { display:flex; gap:8px; }
+.nav-link {
+  color:#fff; font-weight:600; font-size:14px;
+  background:var(--gray); padding:8px 20px; border-radius:8px;
+  transition:background .2s;
+}
+.nav-link:hover { background:#2a2b2c; }
+.header-right { display:flex; align-items:center; gap:8px; }
+.search-icon-btn { width:40px; height:40px; cursor:pointer; }
+.btn-login {
+  background:transparent; border:1px solid #fff; color:#fff;
+  padding:8px 20px; border-radius:8px; font-size:14px; font-weight:600;
+  cursor:pointer; transition:.2s;
+}
+.btn-login:hover { background:#fff; color:#000; }
+.btn-register {
+  background:var(--primary); color:#000; border:none;
+  padding:8px 20px; border-radius:8px; font-size:14px; font-weight:600;
+  cursor:pointer; transition:opacity .2s;
+}
+.btn-register:hover { opacity:.85; }
+.hamburger {
+  display:none; flex-direction:column; gap:5px; cursor:pointer;
+  background:none; border:none; padding:4px;
+}
+.hamburger span { width:24px; height:2px; background:#fff; border-radius:2px; display:block; }
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position:fixed; top:65px; left:0; bottom:0;
+  width:var(--sidebar-w); background:#000;
+  border-right:1px solid var(--border);
+  overflow-y:auto; z-index:100; padding:12px;
+  scrollbar-width:none;
+}
+.sidebar::-webkit-scrollbar { display:none; }
+.sidebar ul { list-style:none; display:flex; flex-direction:column; gap:4px; }
+.sidebar ul li a {
+  display:flex; align-items:center; gap:12px;
+  padding:12px; border-radius:8px; color:#fff;
+  font-size:15px; font-weight:600; transition:background .2s;
+}
+.sidebar ul li a:hover { background:var(--gray); }
+.sidebar ul li a img { width:22px; height:22px; flex-shrink:0; }
+.sidebar-divider { height:1px; background:var(--border); margin:12px 0; }
+
+/* ===== MAIN ===== */
+.main-content {
+  margin-left:var(--sidebar-w);
+  margin-top:65px;
+  padding:24px 28px 80px;
+  min-height:calc(100vh - 65px);
+}
+
+/* ===== BANNER SLIDER ===== */
+.banner-section { margin-bottom:24px; }
+.banner-slider { position:relative; border-radius:14px; overflow:hidden; }
+.banner-slide { display:none; position:relative; border-radius:14px; overflow:hidden; }
+.banner-slide.active { display:block; }
+.banner-slide img {
+  width:100%; height:420px; object-fit:cover; border-radius:14px;
+  border:2px solid rgba(255,183,0,.4);
+}
+.banner-overlay {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  justify-content:center; padding:32px 40px;
+  background:linear-gradient(90deg, rgba(0,0,0,.7) 0%, transparent 70%);
+  border-radius:14px;
+}
+.banner-tag { font-size:12px; color:#fff; margin-bottom:8px; letter-spacing:.05em; }
+.banner-title { font-size:26px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:20px; }
+.btn-claim {
+  background:var(--primary); color:#000; border:none;
+  padding:12px 32px; border-radius:8px; font-size:14px; font-weight:700;
+  cursor:pointer; text-transform:uppercase; width:fit-content;
+  transition:opacity .2s;
+}
+.btn-claim:hover { opacity:.85; }
+.slider-nav {
+  display:flex; align-items:center; justify-content:center;
+  gap:40px; margin-top:12px;
+}
+.slider-arrow {
+  background:rgba(255,255,255,.15); border:none; color:#fff;
+  width:32px; height:32px; border-radius:50%; cursor:pointer;
+  font-size:14px; display:flex; align-items:center; justify-content:center;
+  transition:.2s;
+}
+.slider-arrow:hover { background:#fff; color:#000; }
+.dots { display:flex; gap:6px; }
+.dot {
+  width:20px; height:6px; border-radius:999px;
+  background:rgba(255,255,255,.25); cursor:pointer; border:none;
+  transition:background .3s;
+}
+.dot.active { background:var(--primary); }
+
+/* ===== SEARCH ===== */
+.search-bar { position:relative; margin-bottom:24px; }
+.search-bar img {
+  position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:22px; pointer-events:none;
+}
+.search-bar input {
+  width:100%; height:44px; background:#000;
+  border:1px solid rgba(255,255,255,.25); border-radius:8px;
+  padding:0 16px 0 48px; color:#fff; font-size:14px; outline:none;
+  transition:border-color .2s;
+}
+.search-bar input::placeholder { color:rgba(255,255,255,.5); }
+.search-bar input:focus { border-color:rgba(255,183,0,.5); }
+
+/* ===== CATEGORY CARDS ===== */
+.cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:28px; }
+.cat-card {
+  display:block; border-radius:14px; padding:2px;
+  background:var(--gold-grad); cursor:pointer;
+  transition:transform .3s; overflow:hidden;
+}
+.cat-card:hover { transform:scale(1.02); }
+.cat-inner {
+  background:linear-gradient(135deg,#3F2D00 0%,#000 80%);
+  border-radius:12px; padding:24px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  min-height:120px;
+}
+.cat-inner h2 { font-size:28px; font-weight:700; text-transform:uppercase; }
+.cat-inner img { width:90px; height:90px; object-fit:contain; transition:transform .3s; }
+.cat-card:hover .cat-inner img { transform:scale(1.1) translateY(-4px); }
+
+/* ===== SECTION HEADER ===== */
+.section-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:14px;
+}
+.section-title { font-size:20px; font-weight:600; }
+.see-all { font-size:14px; color:#fff; transition:color .2s; }
+.see-all:hover { color:var(--primary); }
+
+/* ===== GAME SCROLL ===== */
+.game-scroll {
+  display:flex; gap:8px; overflow-x:auto; padding-bottom:12px;
+  margin-bottom:28px; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.game-scroll::-webkit-scrollbar { display:none; }
+.game-card { flex-shrink:0; width:130px; cursor:pointer; transition:transform .3s; }
+.game-card:hover { transform:translateY(-8px); }
+.game-card img {
+  width:130px; height:174px; border-radius:10px;
+  object-fit:cover; border:1px solid rgba(255,255,255,.05);
+}
+.game-meta {
+  display:flex; align-items:center; gap:5px;
+  margin-top:6px; font-size:12px;
+}
+.ydot {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--primary); flex-shrink:0;
+}
+.pc { color:#fff; }
+.pt { color:rgba(255,255,255,.5); }
+
+/* ===== FOOTER ===== */
+footer {
+  background:#000; border-top:1px solid var(--border);
+  padding:40px 28px 24px; margin-left:var(--sidebar-w);
+}
+.footer-logo img { height:36px; margin-bottom:28px; }
+.footer-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-bottom:32px; }
+.footer-col h3 { color:rgba(255,255,255,.4); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.footer-col ul li a { color:rgba(255,255,255,.6); font-size:13px; transition:color .2s; }
+.footer-col ul li a:hover { color:#fff; }
+.footer-payments { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px; }
+.footer-payments img { height:24px; width:auto; opacity:.7; transition:opacity .2s; }
+.footer-payments img:hover { opacity:1; }
+.footer-bottom { border-top:1px solid var(--border); padding-top:20px; color:rgba(255,255,255,.4); font-size:12px; text-align:center; }
+
+/* ===== MOBILE OVERLAY ===== */
+.sidebar-overlay {
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,.7);
+  z-index:99;
+}
+.sidebar-overlay.open { display:block; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1024px) {
+  :root { --sidebar-w: 200px; }
+}
+
+@media (max-width:768px) {
+  .sidebar { transform:translateX(-100%); transition:transform .3s; width:260px; }
+  .sidebar.open { transform:translateX(0); }
+  .main-content { margin-left:0; padding:16px 16px 80px; }
+  footer { margin-left:0; padding:32px 16px 24px; }
+  .hamburger { display:flex; }
+  .header-nav { display:none; }
+  .btn-login span { display:none; }
+  .btn-login { padding:8px 14px; }
+  .cat-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .cat-inner { padding:16px; min-height:90px; }
+  .cat-inner h2 { font-size:18px; }
+  .cat-inner img { width:60px; height:60px; }
+  .banner-title { font-size:16px; }
+  .banner-overlay { padding:16px 20px; }
+  .banner-slide img { height:200px; }
+  .banner-tag { font-size:10px; }
+  .btn-claim { padding:8px 18px; font-size:12px; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:20px; }
+  .search-icon-btn { display:none; }
+}
+
+@media (max-width:480px) {
+  .btn-register { padding:8px 14px; font-size:13px; }
+  .game-card { width:110px; }
+  .game-card img { width:110px; height:147px; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+
+/* ===== PAYMENT BANNER ===== */
+.payment-banner {
+  display:flex; align-items:center; justify-content:center; gap:16px;
+  background:#111; border:2px solid rgba(255,183,0,.4); border-radius:14px;
+  padding:16px 24px; margin:28px 0; flex-wrap:wrap;
+}
+.payment-banner-icons { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.payment-banner-icons img { height:28px; width:auto; }
+.payment-banner-text { color:var(--primary); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.03em; text-align:center; }
+.payment-banner .btn-deposit {
+  background:var(--primary); color:#000; border:none;
+  padding:10px 28px; border-radius:8px; font-size:13px; font-weight:700;
+  cursor:pointer; text-transform:uppercase; transition:opacity .2s;
+}
+.payment-banner .btn-deposit:hover { opacity:.85; }
+
+/* ===== SPORTS GRID ===== */
+.sports-scroll {
+  display:flex; gap:12px; overflow-x:auto; padding-bottom:12px;
+  margin-bottom:28px; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.sports-scroll::-webkit-scrollbar { display:none; }
+.sport-card {
+  flex-shrink:0; width:120px; text-align:center; cursor:pointer;
+  transition:transform .3s; text-decoration:none;
+}
+.sport-card:hover { transform:translateY(-6px); }
+.sport-card img {
+  width:120px; height:160px; border-radius:12px; object-fit:cover;
+  border:2px solid rgba(255,183,0,.3);
+}
+.sport-card span {
+  display:block; margin-top:8px; font-size:13px; font-weight:500;
+  color:rgba(255,255,255,.8);
+}
+
+/* ===== SEO SECTION ===== */
+.seo-section {
+  background:#0a0a0a; border-top:1px solid rgba(255,255,255,.04);
+  padding:40px 28px; margin-left:var(--sidebar-w);
+  color:rgba(255,255,255,.45); font-size:13px; line-height:1.8;
+}
+.seo-section h2 { color:rgba(255,255,255,.7); font-size:18px; font-weight:600; margin:28px 0 12px; }
+.seo-section h3 { color:rgba(255,255,255,.6); font-size:15px; font-weight:500; margin:20px 0 8px; }
+.seo-section p { margin-bottom:10px; }
+.seo-section ul { padding-left:20px; margin-bottom:12px; }
+.seo-section li { margin-bottom:4px; }
+.seo-section a { color:var(--primary); }
+
+/* ===== FAQ ===== */
+.faq-section { margin-top:32px; }
+.faq-item { border-bottom:1px solid rgba(255,255,255,.08); }
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 0; cursor:pointer; font-size:14px; font-weight:500;
+  color:rgba(255,255,255,.8); transition:color .2s;
+}
+.faq-q:hover { color:var(--primary); }
+.faq-q .arrow { transition:transform .3s; font-size:12px; color:rgba(255,255,255,.4); }
+.faq-q.open .arrow { transform:rotate(180deg); }
+.faq-a { display:none; padding:0 0 16px; color:rgba(255,255,255,.5); font-size:13px; line-height:1.7; }
+.faq-a.open { display:block; }
+
+@media (max-width:768px) {
+  .seo-section { margin-left:0; padding:32px 16px; }
+  .payment-banner { flex-direction:column; gap:12px; padding:16px; }
+  .sport-card { width:100px; }
+  .sport-card img { width:100px; height:133px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo" href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/webp/mobile-logo.webp" alt="29Black"></a>
+    <div class="header-nav">
+      <a class="nav-link" href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Casino</a>
+      <a class="nav-link" href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Deportes</a>
+    </div>
+  </div>
+  <div class="header-right">
+    <img class="search-icon-btn" src="assets/svg/searchIcon.svg" alt="Buscar">
+    <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><button class="btn-login">Iniciar sesión</button></a>
+    <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><button class="btn-register">Registrarse</button></a>
+  </div>
+</header>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <ul>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/casinoIcon.svg" alt="">Casino</a></li>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/sportsIcon.svg" alt="">Deportes</a></li>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/promotionsIcon.svg" alt="">Promociones</a></li>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/bonusIcon.svg" alt="">Bonos</a></li>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/VIPIcon.svg" alt="">Portal VIP</a></li>
+  </ul>
+  <div class="sidebar-divider"></div>
+  <ul>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/referFriend.svg" alt="">Invitar a un Amigo</a></li>
+    <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><img src="assets/svg/contactIcon.svg" alt="">Contáctenos</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main class="main-content">
+
+  <!-- BANNER SLIDER -->
+  <div class="banner-section">
+    <div class="banner-slider" id="slider">
+
+      <div class="banner-slide active">
+        <img src="assets/banners/banner_111_desktop.webp" alt="Bono 200%">
+        <div class="banner-overlay">
+          <p class="banner-tag">UNA BIENVENIDA COMO NINGUNA OTRA</p>
+          <h2 class="banner-title">BONO DEL 200%<br>10% APUESTA GRATIS / 50 GIROS GRATIS</h2>
+          <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" style="text-decoration:none"><button class="btn-claim">Reclama ahora</button></a>
+        </div>
+      </div>
+
+      <div class="banner-slide">
+        <img src="assets/banners/banner_65_desktop.webp" alt="Free Bet 25%">
+        <div class="banner-overlay">
+          <p class="banner-tag">¡COMIENZA EL PARTIDO!</p>
+          <h2 class="banner-title">BONO FREE BET DEL 25%<br>365 DÍAS AL AÑO</h2>
+          <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" style="text-decoration:none"><button class="btn-claim">Reclama ahora</button></a>
+        </div>
+      </div>
+
+      <div class="banner-slide">
+        <img src="assets/banners/banner_21_desktop.webp" alt="Casino Lounge">
+        <div class="banner-overlay">
+          <p class="banner-tag">CASINO LOUNGE</p>
+          <h2 class="banner-title">BONO CASINO DEL 50%<br>EN CADA DEPÓSITO</h2>
+          <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" style="text-decoration:none"><button class="btn-claim">Reclama ahora</button></a>
+        </div>
+      </div>
+
+      <div class="banner-slide">
+        <img src="assets/banners/banner_20_desktop.webp" alt="Reel Blaze">
+        <div class="banner-overlay">
+          <p class="banner-tag">REEL BLAZE</p>
+          <h2 class="banner-title">APUESTA A TU MANERA<br>PARA OBTENER GIROS GRATIS</h2>
+          <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" style="text-decoration:none"><button class="btn-claim">Reclama ahora</button></a>
+        </div>
+      </div>
+
+      <div class="banner-slide">
+        <img src="assets/banners/banner_22_desktop.webp" alt="Bet Rush">
+        <div class="banner-overlay">
+          <p class="banner-tag">BET RUSH</p>
+          <h2 class="banner-title">DESBLOQUEA APUESTAS GRATIS<br>POR CADA 10 APUESTAS REALIZADAS</h2>
+          <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" style="text-decoration:none"><button class="btn-claim">Reclama ahora</button></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="slider-nav">
+      <button class="slider-arrow" id="prevBtn">&#8249;</button>
+      <div class="dots" id="dots">
+        <button class="dot active"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+      </div>
+      <button class="slider-arrow" id="nextBtn">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <img src="assets/png/searchicon.png" alt="">
+    <input type="text" placeholder="Buscar categorías, juegos, proveedores...">
+  </div>
+
+  <!-- CASINO / SPORTS CARDS -->
+  <div class="cat-grid" id="casino">
+    <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="cat-card">
+      <div class="cat-inner">
+        <h2>Casino</h2>
+        <img src="assets/png/casinoChipsNew.png" alt="Casino">
+      </div>
+    </a>
+    <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="cat-card">
+      <div class="cat-inner">
+        <h2>Deportes</h2>
+        <img src="assets/png/ballNew.png" alt="Deportes">
+      </div>
+    </a>
+  </div>
+
+  <!-- SLOTS -->
+  <div id="slots">
+    <div class="section-header">
+      <span class="section-title">Tragamonedas</span>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="see-all">Ver todo</a>
+    </div>
+    <div class="game-scroll">
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/8fbc3320_playn-go_book-of-dead_300x400.webp" alt="Book of Dead"><div class="game-meta"><div class="ydot"></div><span class="pc">41</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/d8e85e83_netent_starburst_300x400.webp" alt="Starburst"><div class="game-meta"><div class="ydot"></div><span class="pc">10</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/062c878a_playn-go_fire-joker_300x400.webp" alt="Fire Joker"><div class="game-meta"><div class="ydot"></div><span class="pc">58</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/f5ffff79_netent_dead-or-alive-2_300x400.webp" alt="Dead or Alive 2"><div class="game-meta"><div class="ydot"></div><span class="pc">3</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/4332e397_playn-go_reactoonz_300x400.webp" alt="Reactoonz"><div class="game-meta"><div class="ydot"></div><span class="pc">3</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/1d0407d5_netent_divine-fortune-black-no-bf_300x400.webp" alt="Divine Fortune"><div class="game-meta"><div class="ydot"></div><span class="pc">0</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/46386102_playn-go_legacy-of-dead_300x400.webp" alt="Legacy of Dead"><div class="game-meta"><div class="ydot"></div><span class="pc">57</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/51ce206d_big-time-gaming_bonanza_300x400.webp" alt="Bonanza"><div class="game-meta"><div class="ydot"></div><span class="pc">7</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/56a5ab1f_big-time-gaming_extra-chilli_300x400.webp" alt="Extra Chilli"><div class="game-meta"><div class="ydot"></div><span class="pc">16</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/8864e7d7_red-tiger-gaming_blood-suckers-megaways_300x400.webp" alt="Blood Suckers"><div class="game-meta"><div class="ydot"></div><span class="pc">75</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/bb182ebd_nolimit-city_san-quentin-xways_300x400.webp" alt="San Quentin"><div class="game-meta"><div class="ydot"></div><span class="pc">9</span><span class="pt">&nbsp;jugando</span></div></a>
+    </div>
+  </div>
+
+  <!-- LIVE CASINO -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Casino en Vivo</span>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="see-all">Ver todo</a>
+    </div>
+    <div class="game-scroll">
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/48a58421_evolution_roulette-lobby_300x400.webp" alt="Ruleta"><div class="game-meta"><div class="ydot"></div><span class="pc">59</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/ca12823e_evolution_crazy-time_300x400.webp" alt="Crazy Time"><div class="game-meta"><div class="ydot"></div><span class="pc">93</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/c7dc168d_evolution_lightning-blackjack_300x400.webp" alt="Lightning Blackjack"><div class="game-meta"><div class="ydot"></div><span class="pc">4</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/46b03c6f_evolution_blackjack-lobby_300x400.webp" alt="Blackjack"><div class="game-meta"><div class="ydot"></div><span class="pc">83</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/6ae60425_evolution_dream-catcher_300x400.webp" alt="Dream Catcher"><div class="game-meta"><div class="ydot"></div><span class="pc">16</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/b502f83f_evolution_infinite-blackjack_300x400.webp" alt="Infinite Blackjack"><div class="game-meta"><div class="ydot"></div><span class="pc">27</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/13c7a82b_evolution_monopoly-live_300x400.webp" alt="Monopoly Live"><div class="game-meta"><div class="ydot"></div><span class="pc">35</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/18bc3c36_evolution_roulette_300x400.webp" alt="Ruleta"><div class="game-meta"><div class="ydot"></div><span class="pc">1</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/6d42bdff_evolution_baccarat_300x400.webp" alt="Baccarat"><div class="game-meta"><div class="ydot"></div><span class="pc">60</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/99fc9f8d_evolution_sic-bo_300x400.webp" alt="Sic Bo"><div class="game-meta"><div class="ydot"></div><span class="pc">68</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/2966b162_evolution_dragon-tiger_300x400.webp" alt="Dragon Tiger"><div class="game-meta"><div class="ydot"></div><span class="pc">35</span><span class="pt">&nbsp;jugando</span></div></a>
+    </div>
+  </div>
+
+  <!-- TABLE GAMES -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Juegos de Mesa</span>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="see-all">Ver todo</a>
+    </div>
+    <div class="game-scroll">
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/b46d9e89_netent_european-roulette_300x400.webp" alt="Ruleta Europea"><div class="game-meta"><div class="ydot"></div><span class="pc">7</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/fd4f42f5_playn-go_blackjack-mh_300x400.webp" alt="Blackjack"><div class="game-meta"><div class="ydot"></div><span class="pc">13</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/c60faaca_netent_baccarat_300x400.webp" alt="Baccarat"><div class="game-meta"><div class="ydot"></div><span class="pc">8</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/de1447fd_evolution_first-person-xxxtreme-lightning-roulette_300x400.webp" alt="Lightning Roulette"><div class="game-meta"><div class="ydot"></div><span class="pc">69</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/69dc5664_playn-go_casino-holdem_300x400.webp" alt="Casino Holdem"><div class="game-meta"><div class="ydot"></div><span class="pc">61</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/8733e49c_netent_casino-holdem_300x400.webp" alt="Casino Holdem"><div class="game-meta"><div class="ydot"></div><span class="pc">31</span><span class="pt">&nbsp;jugando</span></div></a>
+    </div>
+  </div>
+
+  <!-- INSTANT GAMES -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Juegos Instantáneos</span>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="see-all">Ver todo</a>
+    </div>
+    <div class="game-scroll">
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/1c81d749_spribe_aviator_300x400.webp" alt="Aviator"><div class="game-meta"><div class="ydot"></div><span class="pc">45</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/34ec7ce8_spribe_plinko_300x400.webp" alt="Plinko"><div class="game-meta"><div class="ydot"></div><span class="pc">1</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/441b8333_spribe_mines_300x400.webp" alt="Mines"><div class="game-meta"><div class="ydot"></div><span class="pc">70</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/d5bbe21f_spribe_hi-lo_300x400.webp" alt="Hi-Lo"><div class="game-meta"><div class="ydot"></div><span class="pc">30</span><span class="pt">&nbsp;jugando</span></div></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="game-card"><img src="assets/games/6fd87a7b_spribe_goal_300x400.webp" alt="Goal"><div class="game-meta"><div class="ydot"></div><span class="pc">29</span><span class="pt">&nbsp;jugando</span></div></a>
+    </div>
+  </div>
+
+
+  <!-- PAYMENT BANNER -->
+  <div class="payment-banner">
+    <div class="payment-banner-icons">
+      <img src="assets/svg/apple.svg" alt="Apple Pay">
+      <img src="assets/svg/gpay.svg" alt="Google Pay">
+      <img src="assets/svg/visa.svg" alt="Visa">
+      <img src="assets/svg/blik.svg" alt="Blik">
+      <img src="assets/svg/volt.svg" alt="Volt">
+      <img src="assets/svg/MBWay.svg" alt="MB Way">
+      <img src="assets/svg/Sofort.svg" alt="Sofort">
+      <img src="assets/svg/mifinity.svg" alt="MiFinity">
+      <img src="assets/svg/interac2.svg" alt="Interac">
+      <img src="assets/svg/crypto-logos.svg" alt="Crypto" style="height:24px;">
+    </div>
+    <span class="payment-banner-text">Deposita rápido. Juega ahora. Retira al instante.</span>
+    <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black"><button class="btn-deposit">Depositar</button></a>
+  </div>
+
+  <!-- DEPORTES POPULARES -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Deportes Populares</span>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="see-all">Ver todo</a>
+    </div>
+    <div class="sports-scroll">
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/football.png" alt="Fútbol"><span>Fútbol</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/tennis.png" alt="Tenis"><span>Tenis</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/basketball.png" alt="Baloncesto"><span>Baloncesto</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/volleyball.png" alt="Voleibol"><span>Voleibol</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/american_football.png" alt="Fútbol Americano"><span>Fútbol Americano</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/hockey.png" alt="Hockey"><span>Hockey sobre Hielo</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/boxing.png" alt="Boxeo"><span>Boxeo</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/baseball.png" alt="Béisbol"><span>Béisbol</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/darts.png" alt="Dardos"><span>Dardos</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/mma.png" alt="MMA"><span>MMA</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/f1.png" alt="Fórmula 1"><span>Fórmula 1</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/cs.png" alt="CS2"><span>CS2</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/dota2.png" alt="Dota 2"><span>Dota 2</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/lol.png" alt="League of Legends"><span>League of Legends</span></a>
+      <a href="https://m-traff.net/ultimate-2025?sub_id_2=29black" class="sport-card"><img src="assets/png/sport-categories/valorant.png" alt="Valorant"><span>Valorant</span></a>
+    </div>
+  </div>
+
+</main>
+
+<!-- SEO CONTENT -->
+<div class="seo-section">
+  <div style="max-width:1100px;margin:0 auto;">
+    <h2>29Black Casino en línea y Apuestas Deportivas</h2>
+    <p>Descubre nuestra selección premium de juegos de casino con dinero real y apuestas deportivas en línea. ¡Entra en el juego con 29Black! Con más de 5 000 títulos de más de 30 proveedores, 29Black te ofrece una variedad de juegos a través de una plataforma todo en uno fácil de usar.</p>
+
+    <h2>¿Por qué los jugadores eligen 29Black?</h2>
+    <ul>
+      <li><strong>Casino y Casa de Apuestas en una sola plataforma:</strong> En 29Black encontrarás una gran variedad de tragamonedas y otros juegos de casino combinados con opciones de apuestas deportivas en línea.</li>
+      <li><strong>Compatibilidad fiat y crypto:</strong> 29Black es una plataforma crypto que garantiza transacciones seguras y protegidas, además de los métodos de pago tradicionales.</li>
+      <li><strong>Plataforma fiable y segura:</strong> La plataforma está licenciada por el Gobierno de Anjouan, Unión de las Comoras.</li>
+      <li><strong>Pagos rápidos:</strong> 29Black ofrece pagos rápidos y simplificados, tanto en criptomonedas como a través de métodos tradicionales.</li>
+      <li><strong>Crupieres en Vivo y Apuestas en Vivo:</strong> Explora los juegos con crupieres en vivo transmitidos desde los estudios de proveedores como Evolution y Ezugi.</li>
+    </ul>
+
+    <h2>¿Cómo funciona?</h2>
+    <h3>Casino</h3>
+    <ul>
+      <li>Crea una cuenta</li>
+      <li>Realiza un depósito en moneda fiat o en criptomoneda</li>
+      <li>Elige un juego y juega</li>
+      <li>Retira tus ganancias</li>
+    </ul>
+    <p>Solo se necesita un minuto para empezar a jugar en 29Black. Una vez conectado, puedes explorar fácilmente los mejores juegos de casino o usar los filtros para encontrar tus favoritos.</p>
+
+    <h3>Apuestas Deportivas</h3>
+    <ul>
+      <li>Selecciona un deporte y un mercado</li>
+      <li>Elige el monto de tu apuesta</li>
+      <li>Confirma tu apuesta</li>
+      <li>Sigue los resultados en tiempo real</li>
+    </ul>
+
+    <h2>Confianza y Seguridad</h2>
+    <p>29Black cumple con las normas más recientes de protección de datos. Toda la información sensible de los jugadores está protegida y los juegos utilizan generadores de números aleatorios (RNG) certificados para garantizar resultados perfectamente justos.</p>
+    <p>Los pagos son procesados exclusivamente por proveedores de servicios de primer nivel y criptomonedas reconocidas. Toda la información sobre licencias se muestra claramente en la parte inferior de la página.</p>
+
+    <h2>Juega de forma responsable</h2>
+    <p>29Black se preocupa por sus jugadores. Por eso, ponemos a tu disposición todos los recursos necesarios para jugar con total seguridad:</p>
+    <ul>
+      <li>Establecer límites de depósito y apuesta</li>
+      <li>Gestionar el tiempo en la plataforma</li>
+      <li>Autoexclusión y períodos de pausa</li>
+      <li>Organizaciones externas: <a href="http://www.gamcare.org.uk/" rel="nofollow">GamCare</a>, <a href="http://www.gamblingtherapy.org/" rel="nofollow">Gambling Therapy</a>, <a href="http://www.gamblersanonymous.org/" rel="nofollow">GamblersAnonymous</a></li>
+    </ul>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Preguntas Frecuentes</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          ¿Qué es 29Black?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">29Black es un casino en línea y casa de apuestas que ofrece tragamonedas, juegos de mesa, casino en vivo, juegos instantáneos y apuestas deportivas.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          ¿Puedo ganar dinero real en 29Black?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Sí, puedes ganar dinero real jugando a las tragamonedas o apostando en deportes en 29Black.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          ¿Cómo jugar a los juegos de casino en línea?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Puedes jugar a los juegos de casino creando una cuenta en 29Black, explorando las categorías de juegos y realizando tus apuestas.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          ¿29Black tiene licencia?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Sí, 29Black está licenciado por el Gobierno de Anjouan, Unión de las Comoras.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          ¿29Black es compatible con criptomonedas?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Sí, 29Black acepta criptomonedas como BTC, ETH, USDT, USDC y BNB.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+          ¿Cómo apostar en deportes?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">Para apostar en deportes en 29Black, haz clic en el botón «Deportes» en la parte superior, encuentra un evento, selecciona un mercado e ingresa el monto de tu apuesta.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer id="sports">
+  <div class="footer-logo"><img src="assets/png/footer-logo.png" alt="29Black"></div>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Casino</h3>
+      <ul>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Juegos de Casino</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Tragamonedas</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Casino en Vivo</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Juegos de Mesa</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Juegos Instantáneos</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Promociones</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Deportes</h3>
+      <ul>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Apuestas Deportivas</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Deportes en Vivo</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Fútbol</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Baloncesto</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Tenis</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">eSports</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Cuenta</h3>
+      <ul>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Portal VIP</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Bonos</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Invitar a un Amigo</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Contáctenos</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Términos de uso</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Política de privacidad</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Política AML</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Juego Responsable</a></li>
+        <li><a href="https://m-traff.net/ultimate-2025?sub_id_2=29black">Política de Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-payments">
+    <img src="assets/svg/footerimgs/apple.svg" alt="Apple Pay">
+    <img src="assets/svg/footerimgs/gpay.svg" alt="Google Pay">
+    <img src="assets/svg/footerimgs/visa.svg" alt="Visa">
+    <img src="assets/svg/footerimgs/blik.svg" alt="Blik">
+    <img src="assets/svg/footerimgs/volt.svg" alt="Volt">
+    <img src="assets/svg/footerimgs/MBWay.svg" alt="MB Way">
+    <img src="assets/svg/footerimgs/Sofort.svg" alt="Sofort">
+    <img src="assets/svg/footerimgs/mifinity.svg" alt="MiFinity">
+    <img src="assets/svg/footerimgs/interac2.svg" alt="Interac">
+  </div>
+  <div class="footer-bottom">
+    <img src="assets/png/footer-imge1.png" alt="" style="height:32px;display:inline-block;margin:0 8px 12px;">
+    <img src="assets/png/footer-imge2.png" alt="" style="height:32px;display:inline-block;margin:0 8px 12px;">
+    <img src="assets/png/footer-imge3.png" alt="" style="height:32px;display:inline-block;margin:0 8px 12px;">
+    <br>
+    © 2026 29Black · Todos los derechos reservados · support@29black.com
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+var cur = 0;
+var slides = document.querySelectorAll('.banner-slide');
+var dots = document.querySelectorAll('.dot');
+
+function goSlide(n) {
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+}
+
+document.getElementById('prevBtn').addEventListener('click', function(){ goSlide(cur-1); });
+document.getElementById('nextBtn').addEventListener('click', function(){ goSlide(cur+1); });
+dots.forEach(function(d, i){ d.addEventListener('click', function(){ goSlide(i); }); });
+var autoSlide = setInterval(function(){ goSlide(cur+1); }, 4500);
+
+var hamburger = document.getElementById('hamburgerBtn');
+var sidebar = document.getElementById('sidebar');
+var overlay = document.getElementById('sidebarOverlay');
+
+hamburger.addEventListener('click', function(){
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+});
+overlay.addEventListener('click', function(){
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+});
+
+sidebar.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){
+    if(window.innerWidth <= 768){
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
